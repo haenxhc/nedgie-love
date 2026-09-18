@@ -1,0 +1,300 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pour Nedgie ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+min-height:100vh;
+overflow:hidden;
+background:radial-gradient(circle at center,#50001f,#17000b 45%,#030003);
+font-family:Georgia,serif;color:white;
+display:flex;justify-content:center;align-items:center;
+}
+.stars{position:fixed;inset:0}
+.star{
+position:absolute;width:2px;height:2px;background:white;
+border-radius:50%;box-shadow:0 0 8px #ff4f87;
+animation:twinkle 2s infinite alternate
+}
+@keyframes twinkle{from{opacity:.2}to{opacity:1;transform:scale(1.7)}}
+
+.intro{
+position:fixed;inset:0;z-index:20;
+display:flex;justify-content:center;align-items:center;
+text-align:center;
+background:radial-gradient(circle,#350016,#030003 75%);
+transition:1.5s
+}
+.intro.hide{opacity:0;pointer-events:none;transform:scale(1.15)}
+.intro-content{width:90%;max-width:500px}
+.small{
+font-family:Arial;letter-spacing:5px;font-size:12px;
+color:#ff8aaa;text-transform:uppercase
+}
+.intro-heart{
+font-size:85px;margin:25px 0;
+animation:beat 1.4s infinite;
+filter:drop-shadow(0 0 25px #ff0055)
+}
+h1{
+font-size:clamp(40px,11vw,70px);
+text-shadow:0 0 15px #ff0055,0 0 40px #ff0055
+}
+h1 span,h2 span{color:#ff4f87}
+button{
+border:0;border-radius:50px;
+background:linear-gradient(45deg,#ff0055,#ff4f87);
+color:white;font-weight:bold;
+padding:16px 32px;margin-top:30px;
+font-size:16px;cursor:pointer;
+box-shadow:0 0 25px #ff0055;
+transition:.3s
+}
+button:hover{transform:scale(1.08)}
+
+.main{
+width:100%;min-height:100vh;padding:20px;
+display:flex;justify-content:center;align-items:center;
+opacity:0;transform:translateY(30px);transition:2s
+}
+.main.show{opacity:1;transform:translateY(0)}
+.card{
+width:100%;max-width:650px;max-height:90vh;
+overflow-y:auto;text-align:center;
+padding:35px 25px;border-radius:30px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,70,130,.4);
+box-shadow:0 0 40px rgba(255,0,85,.2);
+backdrop-filter:blur(12px)
+}
+.card::-webkit-scrollbar{width:4px}
+.card::-webkit-scrollbar-thumb{background:#ff4f87}
+.top{
+font-family:Arial;text-transform:uppercase;
+letter-spacing:4px;font-size:12px;color:#ff8aaa
+}
+h2{
+font-size:clamp(45px,12vw,80px);
+margin:15px 0;
+text-shadow:0 0 15px #ff0055,0 0 40px #ff0055;
+animation:beat 2s infinite
+}
+.line{
+width:100px;height:2px;margin:20px auto;
+background:#ff4f87;box-shadow:0 0 15px #ff4f87
+}
+.subtitle{
+font-size:20px;line-height:1.6;color:#ffe1eb
+}
+.message{
+margin-top:25px;font-family:Arial;
+font-size:15px;line-height:1.8;color:#f8dfe7
+}
+.message p{margin-bottom:18px}
+.highlight{color:#ff80a8;font-weight:bold}
+.quote{
+margin-top:25px;padding:20px;
+border-left:3px solid #ff4f87;
+background:rgba(255,0,80,.06);
+color:#ffd4e1;font-style:italic;line-height:1.7
+}
+.secret{
+max-height:0;overflow:hidden;opacity:0;transition:1.5s
+}
+.secret.open{max-height:500px;opacity:1;margin-top:25px}
+.secret p{margin:12px 0;line-height:1.7}
+.big{font-size:25px;color:#ff6f9c;text-shadow:0 0 15px #ff0055}
+.heart{
+position:fixed;bottom:-50px;
+animation:floatUp linear forwards;
+pointer-events:none;z-index:10
+}
+@keyframes floatUp{
+0%{transform:translateY(0) scale(.7);opacity:0}
+15%{opacity:1}
+100%{transform:translateY(-110vh) scale(1.4) rotate(360deg);opacity:0}
+}
+@keyframes beat{
+0%,100%{transform:scale(1)}
+15%{transform:scale(1.12)}
+30%{transform:scale(1)}
+45%{transform:scale(1.07)}
+}
+.music{
+position:fixed;right:15px;top:15px;
+z-index:30;width:45px;height:45px;
+padding:0;margin:0;font-size:20px
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" id="musicBtn" onclick="toggleMusic()">🔇</button><section class="intro" id="intro">
+<div class="intro-content">
+<div class="small">I made something special for you</div>
+<div class="intro-heart">❤️</div>
+<h1>For <span>Nedgie</span></h1>
+<button onclick="openLove()">💌 Clique ici</button>
+</div>
+</section>
+
+<main class="main" id="main">
+<div class="card">
+
+<div class="top">Une petite lettre pour toi</div>
+
+<h2>❤️ <span>Nedgie</span> ❤️</h2>
+
+<div class="line"></div>
+
+<div class="subtitle">
+Tu es devenue une personne que mon cœur n'arrive plus à ignorer.
+</div>
+
+<div class="message">
+
+<p>
+Je pourrais écrire des milliers de mots, mais aucun ne suffirait
+à expliquer ce que tu représentes pour moi.
+</p>
+
+<p>
+J'aime ta façon d'être, ta présence, ton sourire et tous ces petits
+détails qui font que tu es simplement toi.
+</p>
+
+<p>
+Quand je pense à toi, j'ai toujours cette petite raison de sourire.
+Tu occupes une place spéciale dans mon cœur.
+</p>
+
+<p>
+Je ne te promets pas une histoire parfaite, mais je peux te promettre
+d'être sincère avec toi et de toujours respecter ce que nous avons.
+</p>
+
+<p class="highlight">
+Tu es l'une de mes plus belles rencontres. ❤️
+</p>
+
+</div>
+
+<div class="quote">
+« Parmi toutes les personnes que j'aurais pu rencontrer,
+je suis heureux que ce soit toi. ❤️ »
+</div>
+
+<button onclick="showSecret()">
+🔐 Il y a encore quelque chose...
+</button>
+
+<div class="secret" id="secret">
+
+<p class="big">Je t'aime, Nedgie. ❤️</p>
+
+<p>
+Merci pour chaque sourire, chaque conversation et chaque moment
+que nous partageons.
+</p>
+
+<p>
+Si un jour tu doutes de la place que tu occupes dans mon cœur,
+reviens simplement ici.
+</p>
+
+<p>
+Parce qu'il y aura toujours une partie de moi qui te choisira.
+💕
+</p>
+
+<p class="big">Forever you. ♾️❤️</p>
+
+</div>
+
+</div>
+</main>
+
+<script>
+const stars=document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+const star=document.createElement("div");
+star.className="star";
+star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*100+"%";
+star.style.animationDelay=Math.random()*3+"s";
+stars.appendChild(star);
+}
+
+function openLove(){
+document.getElementById("intro").classList.add("hide");
+document.getElementById("main").classList.add("show");
+
+const music=document.getElementById("music");
+music.play().then(()=>{
+document.getElementById("musicBtn").textContent="🔊";
+}).catch(()=>{});
+
+for(let i=0;i<30;i++){
+setTimeout(createHeart,i*80);
+}
+}
+
+function toggleMusic(){
+const music=document.getElementById("music");
+const btn=document.getElementById("musicBtn");
+
+if(music.paused){
+music.play();
+btn.textContent="🔊";
+}else{
+music.pause();
+btn.textContent="🔇";
+}
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="heart";
+
+const emojis=["❤️","💕","💗","💖","💘","💞","💓"];
+heart.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*30)+"px";
+
+const duration=5+Math.random()*6;
+heart.style.animationDuration=duration+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),duration*1000);
+}
+
+setInterval(createHeart,700);
+
+function showSecret(){
+document.getElementById("secret").classList.add("open");
+
+for(let i=0;i<25;i++){
+setTimeout(createHeart,i*80);
+}
+}
+</script>
+
+</body>
+</html>
+```
+
