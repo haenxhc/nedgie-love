@@ -1,300 +1,225 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Pour Nedgie ❤️</title>
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{
-min-height:100vh;
-overflow:hidden;
-background:radial-gradient(circle at center,#50001f,#17000b 45%,#030003);
-font-family:Georgia,serif;color:white;
-display:flex;justify-content:center;align-items:center;
-}
-.stars{position:fixed;inset:0}
-.star{
-position:absolute;width:2px;height:2px;background:white;
-border-radius:50%;box-shadow:0 0 8px #ff4f87;
-animation:twinkle 2s infinite alternate
-}
-@keyframes twinkle{from{opacity:.2}to{opacity:1;transform:scale(1.7)}}
-
-.intro{
-position:fixed;inset:0;z-index:20;
-display:flex;justify-content:center;align-items:center;
-text-align:center;
-background:radial-gradient(circle,#350016,#030003 75%);
-transition:1.5s
-}
-.intro.hide{opacity:0;pointer-events:none;transform:scale(1.15)}
-.intro-content{width:90%;max-width:500px}
-.small{
-font-family:Arial;letter-spacing:5px;font-size:12px;
-color:#ff8aaa;text-transform:uppercase
-}
-.intro-heart{
-font-size:85px;margin:25px 0;
-animation:beat 1.4s infinite;
-filter:drop-shadow(0 0 25px #ff0055)
-}
-h1{
-font-size:clamp(40px,11vw,70px);
-text-shadow:0 0 15px #ff0055,0 0 40px #ff0055
-}
-h1 span,h2 span{color:#ff4f87}
-button{
-border:0;border-radius:50px;
-background:linear-gradient(45deg,#ff0055,#ff4f87);
-color:white;font-weight:bold;
-padding:16px 32px;margin-top:30px;
-font-size:16px;cursor:pointer;
-box-shadow:0 0 25px #ff0055;
-transition:.3s
-}
-button:hover{transform:scale(1.08)}
-
-.main{
-width:100%;min-height:100vh;padding:20px;
-display:flex;justify-content:center;align-items:center;
-opacity:0;transform:translateY(30px);transition:2s
-}
-.main.show{opacity:1;transform:translateY(0)}
-.card{
-width:100%;max-width:650px;max-height:90vh;
-overflow-y:auto;text-align:center;
-padding:35px 25px;border-radius:30px;
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,70,130,.4);
-box-shadow:0 0 40px rgba(255,0,85,.2);
-backdrop-filter:blur(12px)
-}
-.card::-webkit-scrollbar{width:4px}
-.card::-webkit-scrollbar-thumb{background:#ff4f87}
-.top{
-font-family:Arial;text-transform:uppercase;
-letter-spacing:4px;font-size:12px;color:#ff8aaa
-}
-h2{
-font-size:clamp(45px,12vw,80px);
-margin:15px 0;
-text-shadow:0 0 15px #ff0055,0 0 40px #ff0055;
-animation:beat 2s infinite
-}
-.line{
-width:100px;height:2px;margin:20px auto;
-background:#ff4f87;box-shadow:0 0 15px #ff4f87
-}
-.subtitle{
-font-size:20px;line-height:1.6;color:#ffe1eb
-}
-.message{
-margin-top:25px;font-family:Arial;
-font-size:15px;line-height:1.8;color:#f8dfe7
-}
-.message p{margin-bottom:18px}
-.highlight{color:#ff80a8;font-weight:bold}
-.quote{
-margin-top:25px;padding:20px;
-border-left:3px solid #ff4f87;
-background:rgba(255,0,80,.06);
-color:#ffd4e1;font-style:italic;line-height:1.7
-}
-.secret{
-max-height:0;overflow:hidden;opacity:0;transition:1.5s
-}
-.secret.open{max-height:500px;opacity:1;margin-top:25px}
-.secret p{margin:12px 0;line-height:1.7}
-.big{font-size:25px;color:#ff6f9c;text-shadow:0 0 15px #ff0055}
-.heart{
-position:fixed;bottom:-50px;
-animation:floatUp linear forwards;
-pointer-events:none;z-index:10
-}
-@keyframes floatUp{
-0%{transform:translateY(0) scale(.7);opacity:0}
-15%{opacity:1}
-100%{transform:translateY(-110vh) scale(1.4) rotate(360deg);opacity:0}
-}
-@keyframes beat{
-0%,100%{transform:scale(1)}
-15%{transform:scale(1.12)}
-30%{transform:scale(1)}
-45%{transform:scale(1.07)}
-}
-.music{
-position:fixed;right:15px;top:15px;
-z-index:30;width:45px;height:45px;
-padding:0;margin:0;font-size:20px
-}
+html{scroll-behavior:smooth}
+body{background:#030106;color:#fff;font-family:Georgia,serif;overflow-x:hidden;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 35%,rgba(255,0,90,.2),transparent 32%),radial-gradient(circle at 10% 90%,rgba(120,0,80,.15),transparent 30%),radial-gradient(circle at 90% 10%,rgba(255,30,100,.12),transparent 30%);pointer-events:none;z-index:-5}
+#stars{position:fixed;inset:0;z-index:-4}
+.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;box-shadow:0 0 10px #ff4f87;animation:star 3s infinite ease-in-out}
+@keyframes star{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1.7)}}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:10}
+.particle{position:absolute;bottom:-40px;animation:rise linear forwards;filter:drop-shadow(0 0 10px #ff0055)}
+@keyframes rise{0%{transform:translateY(0) scale(.4) rotate(0);opacity:0}15%{opacity:1}100%{transform:translateY(-115vh) scale(1.4) rotate(360deg);opacity:0}}
+#intro{position:fixed;inset:0;z-index:100;display:flex;justify-content:center;align-items:center;text-align:center;padding:25px;background:radial-gradient(circle at center,rgba(80,0,35,.8),rgba(3,1,6,.98) 70%);transition:1.8s cubic-bezier(.77,0,.18,1)}
+#intro.hide{opacity:0;transform:scale(1.15);pointer-events:none}
+.introBox{max-width:600px;width:100%}
+.introMini{font-family:Arial,sans-serif;font-size:11px;letter-spacing:6px;color:#ff8bad;text-transform:uppercase;margin-bottom:30px}
+.introHeart{font-size:95px;animation:heartbeat 1.5s infinite;filter:drop-shadow(0 0 35px #ff0055)}
+@keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.1)}}
+.introTitle{font-size:clamp(48px,14vw,90px);margin:20px 0 10px;text-shadow:0 0 20px #ff0055,0 0 60px rgba(255,0,85,.7)}
+.pink{color:#ff5689}
+.introSub{font-family:Arial,sans-serif;color:#d9b5c1;font-size:14px;line-height:1.8;max-width:420px;margin:auto}
+.open{margin-top:35px;padding:17px 38px;border-radius:100px;border:1px solid rgba(255,120,160,.7);background:linear-gradient(135deg,#ff0055,#ff4f87);color:white;font-size:15px;font-weight:bold;box-shadow:0 0 25px rgba(255,0,85,.7),inset 0 0 20px rgba(255,255,255,.15);cursor:pointer;transition:.4s}
+.open:hover{transform:scale(1.08);box-shadow:0 0 45px #ff0055}
+#musicButton{position:fixed;right:18px;top:18px;z-index:120;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,100,150,.5);background:rgba(20,5,15,.75);backdrop-filter:blur(10px);color:#fff;font-size:19px;cursor:pointer;box-shadow:0 0 20px rgba(255,0,85,.3)}
+main{opacity:0;transition:2s ease;padding:80px 18px 100px}
+main.show{opacity:1}
+.container{width:100%;max-width:760px;margin:auto}
+.hero{text-align:center;padding:30px 10px 70px}
+.label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:6px;text-transform:uppercase;color:#ff789d}
+.hero h1{font-size:clamp(55px,15vw,105px);margin:20px 0;line-height:.95;text-shadow:0 0 15px #ff0055,0 0 45px rgba(255,0,85,.8)}
+.hero h1 span{color:#ff578a}
+.hero p{font-family:Arial,sans-serif;font-size:15px;line-height:1.9;color:#dcbfc9;max-width:550px;margin:auto}
+.line{height:1px;width:150px;margin:30px auto;background:linear-gradient(90deg,transparent,#ff4f87,transparent);box-shadow:0 0 15px #ff4f87}.card{position:relative;margin:30px 0;padding:38px 28px;border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,0,80,.025));border:1px solid rgba(255,100,145,.25);box-shadow:0 20px 70px rgba(0,0,0,.5),0 0 35px rgba(255,0,85,.08),inset 0 0 35px rgba(255,0,85,.025);backdrop-filter:blur(16px)}
+.card:before{content:"";position:absolute;inset:-1px;border-radius:28px;padding:1px;background:linear-gradient(120deg,transparent,#ff4f87,transparent,#ff0055,transparent);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.35;pointer-events:none}
+.cardTitle{font-size:26px;color:#ff7199;margin-bottom:22px;text-shadow:0 0 15px rgba(255,0,85,.5)}
+.card p{font-family:Arial,sans-serif;font-size:15px;line-height:2;color:#ead9df;margin-bottom:20px}
+.highlight{color:#ff82a5}
+.quote{text-align:center;font-size:20px;line-height:1.8;font-style:italic;color:#ffdbe6;padding:25px 10px;margin-top:10px}
+.number{font-family:Arial,sans-serif;font-size:10px;letter-spacing:4px;color:#ff608d;margin-bottom:12px}
+.final{text-align:center;padding:70px 10px}
+.finalHeart{font-size:80px;animation:heartbeat 1.6s infinite;filter:drop-shadow(0 0 30px #ff0055)}
+.final h2{font-size:clamp(38px,10vw,65px);margin:25px 0;text-shadow:0 0 20px #ff0055}
+.final p{font-family:Arial,sans-serif;line-height:1.9;color:#d8bec8;max-width:550px;margin:auto}
+.secretButton{margin-top:35px;background:transparent;border:1px solid #ff4f87;color:#ff9bb7;padding:14px 25px;border-radius:50px;cursor:pointer;transition:.4s}
+.secretButton:hover{background:#ff0055;color:#fff;box-shadow:0 0 30px #ff0055}
+#secret{max-height:0;overflow:hidden;opacity:0;transition:1.8s ease}
+#secret.open{max-height:1000px;opacity:1;padding-top:35px}
+.secretText{font-family:Arial,sans-serif;line-height:2;color:#f2dfe6}
+.signature{margin-top:35px;font-size:25px;color:#ff7199;text-shadow:0 0 15px #ff0055}
+footer{text-align:center;font-family:Arial,sans-serif;font-size:10px;letter-spacing:3px;color:#6e5660;padding:30px}
+@media(max-width:500px){.card{padding:30px 21px}.card p{font-size:14px;line-height:1.9}.quote{font-size:18px}}
 </style>
 </head>
-
 <body>
 
-<div class="stars" id="stars"></div>
+<div id="stars"></div>
+<div id="particles"></div>
 
-<audio id="music" loop>
+<audio id="music" loop preload="auto">
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<button class="music" id="musicBtn" onclick="toggleMusic()">🔇</button><section class="intro" id="intro">
-<div class="intro-content">
-<div class="small">I made something special for you</div>
-<div class="intro-heart">❤️</div>
-<h1>For <span>Nedgie</span></h1>
-<button onclick="openLove()">💌 Clique ici</button>
+<button id="musicButton" onclick="toggleMusic()">🔇</button>
+
+<section id="intro">
+<div class="introBox">
+<div class="introMini">A little something from my heart</div>
+<div class="introHeart">❤️</div>
+<div class="introTitle">For <span class="pink">Nedgie</span></div>
+<div class="introSub">Il y a certaines personnes qu'on rencontre par hasard, puis il y a celles qui finissent par devenir une partie de notre histoire.</div>
+<button class="open" onclick="openSite()">💌 Ouvre-moi</button>
 </div>
 </section>
 
-<main class="main" id="main">
-<div class="card">
+<main id="main">
+<div class="container">
 
-<div class="top">Une petite lettre pour toi</div>
-
-<h2>❤️ <span>Nedgie</span> ❤️</h2>
-
+<section class="hero">
+<div class="label">Une lettre qui vient du cœur</div>
+<h1>Pour <span>Nedgie</span> ❤️</h1>
 <div class="line"></div>
+<p>Je ne sais pas si quelques mots peuvent réellement expliquer ce que je ressens, mais je veux quand même essayer. Alors prends ton temps et lis jusqu'à la fin. 🤍</p>
+</section>
 
-<div class="subtitle">
-Tu es devenue une personne que mon cœur n'arrive plus à ignorer.
+<section class="card">
+<div class="number">01 — LA RENCONTRE</div>
+<div class="cardTitle">Depuis que tu es là...</div>
+<p>Il y a des personnes qui entrent dans notre vie sans prévenir. On ne sait pas exactement pourquoi elles arrivent, ni quelle place elles finiront par prendre. Et puis, petit à petit, leur présence devient quelque chose qu'on commence à attendre.</p><p>C'est un peu ce qui s'est passé avec toi. Sans même m'en rendre compte, j'ai commencé à apprécier tes messages, nos conversations, tes petites habitudes et tous ces moments qui peuvent sembler simples, mais qui ont beaucoup plus de valeur pour moi qu'ils n'en ont l'air.</p>
+<p>Tu es devenue une personne que je remarque, une personne à laquelle je pense, une personne dont le sourire peut réellement changer l'ambiance d'une journée.</p>
+</section>
+
+<section class="card">
+<div class="number">02 — CE QUE TU REPRÉSENTES</div>
+<div class="cardTitle">Tu es spéciale à mes yeux.</div>
+<p>Je pourrais te donner mille raisons, mais certaines choses ne s'expliquent pas vraiment. Il y a simplement cette sensation particulière quand je parle avec toi, comme si le monde devenait un peu moins bruyant.</p>
+<p>J'aime ta présence. J'aime les petits détails qui font de toi la personne que tu es. J'aime pouvoir partager des moments avec toi, même lorsqu'ils sont simples. Parce qu'au fond, ce ne sont pas toujours les grands événements que l'on garde dans notre mémoire. Ce sont souvent les petits moments qui restent.</p>
+<p>Et si je devais choisir une chose que j'apprécie le plus, ce serait probablement le fait que je peux être moi-même quand je suis avec toi.</p>
+<div class="quote">« Certaines personnes rendent une journée meilleure simplement en étant présentes. » ❤️</div>
+</section>
+
+<section class="card">
+<div class="number">03 — MES INTENTIONS</div>
+<div class="cardTitle">Je ne veux pas quelque chose de faux.</div>
+<p>Je ne veux pas d'une histoire basée uniquement sur de belles paroles. Les paroles sont faciles. Ce qui compte vraiment, ce sont les actes, la confiance, la sincérité et la manière dont deux personnes se traitent lorsqu'elles traversent des moments difficiles.</p>
+<p>Je ne te promets pas que tout sera toujours parfait. Je ne peux pas promettre ça. Mais je peux te promettre que si je tiens à toi, je veux que ce soit avec honnêteté et respect.</p>
+<p>Je veux pouvoir rire avec toi, parler avec toi, te soutenir, écouter tes journées, connaître tes rêves et être heureux de te voir avancer.</p>
+<p class="highlight">Parce que pour moi, aimer quelqu'un, ce n'est pas seulement dire « je t'aime ». C'est aussi lui montrer qu'elle compte.</p>
+</section>
+
+<section class="card">
+<div class="number">04 — SI TU DOUTES UN JOUR</div>
+<div class="cardTitle">Relis simplement ceci...</div>
+<p>Si un jour tu te demandes si tu comptes vraiment pour moi, souviens-toi de cette page. Je l'ai créée spécialement pour toi parce que certaines choses méritent d'être dites différemment.</p>
+<p>Tu n'as pas besoin d'être parfaite. Tu n'as pas besoin de toujours sourire. Tu n'as pas besoin de cacher tes mauvais jours. Tu peux simplement être toi.</p>
+<p>Et peut-être que je ne trouverai pas toujours les mots parfaits, mais j'espère que mes actions pourront te montrer la place que tu occupes dans mon cœur.</p>
+<div class="quote">« Je ne cherche pas quelqu'un de parfait. Je cherche quelqu'un qui rend le réel magnifique. » 💗</div>
+</section>
+
+<section class="final">
+<div class="finalHeart">❤️</div>
+<h2>Merci d'être toi, Nedgie.</h2>
+<p>Parmi toutes les personnes que la vie aurait pu mettre sur mon chemin, je suis simplement heureux que nos chemins se soient croisés. Et peu importe où la vie nous emmènera, je garderai toujours une place particulière pour les moments que nous avons partagés.</p>
+<button class="secretButton" onclick="showSecret()">🔐 Dernière chose...</button>
+
+<div id="secret">
+<div class="secretText"><p>Nedgie, tu es importante pour moi. Plus que je ne le montre parfois, plus que je ne le dis peut-être, et probablement plus que quelques lignes sur un écran ne pourront jamais l'expliquer.</p>
+<p>Je ne sais pas exactement ce que l'avenir nous réserve, mais je sais une chose : je suis reconnaissant de t'avoir dans ma vie.</p>
+<p>Alors garde ce sourire. Continue d'être cette personne unique. Et si un jour tu oublies à quel point tu es spéciale, viens revoir cette page.</p>
+<p class="highlight">Parce qu'elle existe simplement pour te rappeler qu'il y a quelqu'un qui pense à toi avec beaucoup de tendresse. ❤️</p>
 </div>
-
-<div class="message">
-
-<p>
-Je pourrais écrire des milliers de mots, mais aucun ne suffirait
-à expliquer ce que tu représentes pour moi.
-</p>
-
-<p>
-J'aime ta façon d'être, ta présence, ton sourire et tous ces petits
-détails qui font que tu es simplement toi.
-</p>
-
-<p>
-Quand je pense à toi, j'ai toujours cette petite raison de sourire.
-Tu occupes une place spéciale dans mon cœur.
-</p>
-
-<p>
-Je ne te promets pas une histoire parfaite, mais je peux te promettre
-d'être sincère avec toi et de toujours respecter ce que nous avons.
-</p>
-
-<p class="highlight">
-Tu es l'une de mes plus belles rencontres. ❤️
-</p>
-
+<div class="signature">Je t'aime, Nedgie. ❤️<br>∞</div>
 </div>
-
-<div class="quote">
-« Parmi toutes les personnes que j'aurais pu rencontrer,
-je suis heureux que ce soit toi. ❤️ »
-</div>
-
-<button onclick="showSecret()">
-🔐 Il y a encore quelque chose...
-</button>
-
-<div class="secret" id="secret">
-
-<p class="big">Je t'aime, Nedgie. ❤️</p>
-
-<p>
-Merci pour chaque sourire, chaque conversation et chaque moment
-que nous partageons.
-</p>
-
-<p>
-Si un jour tu doutes de la place que tu occupes dans mon cœur,
-reviens simplement ici.
-</p>
-
-<p>
-Parce qu'il y aura toujours une partie de moi qui te choisira.
-💕
-</p>
-
-<p class="big">Forever you. ♾️❤️</p>
+</section>
 
 </div>
-
-</div>
+<footer>MADE WITH ❤️ JUST FOR NEDGIE</footer>
 </main>
 
 <script>
 const stars=document.getElementById("stars");
 
-for(let i=0;i<120;i++){
-const star=document.createElement("div");
-star.className="star";
-star.style.left=Math.random()*100+"%";
-star.style.top=Math.random()*100+"%";
-star.style.animationDelay=Math.random()*3+"s";
-stars.appendChild(star);
+for(let i=0;i<150;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"%";
+s.style.top=Math.random()*100+"%";
+s.style.animationDelay=Math.random()*4+"s";
+s.style.animationDuration=2+Math.random()*4+"s";
+stars.appendChild(s);
 }
-
-function openLove(){
-document.getElementById("intro").classList.add("hide");
-document.getElementById("main").classList.add("show");
 
 const music=document.getElementById("music");
-music.play().then(()=>{
-document.getElementById("musicBtn").textContent="🔊";
-}).catch(()=>{});
+const musicButton=document.getElementById("musicButton");
 
-for(let i=0;i<30;i++){
-setTimeout(createHeart,i*80);
+function playMusic(){
+music.volume=.65;
+music.play().then(()=>{
+musicButton.textContent="🔊";
+}).catch(()=>{
+musicButton.textContent="🎵";
+});
+}
+
+function openSite(){
+document.getElementById("intro").classList.add("hide");
+setTimeout(()=>{
+document.getElementById("main").classList.add("show");
+},500);
+playMusic();
+for(let i=0;i<45;i++){
+setTimeout(createParticle,i*60);
 }
 }
+
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+playMusic();
+},300);
+});
 
 function toggleMusic(){
-const music=document.getElementById("music");
-const btn=document.getElementById("musicBtn");
-
 if(music.paused){
-music.play();
-btn.textContent="🔊";
+playMusic();
 }else{
 music.pause();
-btn.textContent="🔇";
+musicButton.textContent="🔇";
 }
 }
 
-function createHeart(){
-const heart=document.createElement("div");
-heart.className="heart";
-
-const emojis=["❤️","💕","💗","💖","💘","💞","💓"];
-heart.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(15+Math.random()*30)+"px";
-
-const duration=5+Math.random()*6;
-heart.style.animationDuration=duration+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>heart.remove(),duration*1000);
+function createParticle(){
+const p=document.createElement("div");
+p.className="particle";
+const symbols=["❤️","💕","💗","💖","✨","💓","🌹","♡"];
+p.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+p.style.left=Math.random()*100+"vw";
+p.style.fontSize=12+Math.random()*28+"px";
+const duration=5+Math.random()*7;
+p.style.animationDuration=duration+"s";
+document.getElementById("particles").appendChild(p);
+setTimeout(()=>p.remove(),duration*1000);
 }
 
-setInterval(createHeart,700);
+setInterval(createParticle,900);
 
 function showSecret(){
-document.getElementById("secret").classList.add("open");
+document.getElementById("secret").classList.toggle("open");
+for(let i=0;i<35;i++){
+setTimeout(createParticle,i*50);
+}
+}
 
-for(let i=0;i<25;i++){
-setTimeout(createHeart,i*80);
+document.addEventListener("visibilitychange",()=>{
+if(document.visibilityState==="visible"&&!music.paused){
+music.play().catch(()=>{});
 }
-}
+});
 </script>
 
 </body>
 </html>
-```
-
